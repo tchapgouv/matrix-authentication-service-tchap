@@ -177,24 +177,57 @@ account:
 #  # Default in locally-built binaries: `./translations/`
 #  translations_path: /to/translations
 
+upstream_oauth2:
+  providers:
+    - id: "01JK5MR1SD21MAQY4PWMFG283W"
+      human_name: Proconnect (mock)
+      issuer: "https://sso.tchapgouv.com/realms/proconnect-mock"
+      token_endpoint_auth_method: client_secret_basic
+      client_id: "mas"
+      client_secret: "HrJ1NZ0AbkHuWWjyRHh7X2lzn3S8eagt"
+      scope: "openid profile email"
+      claims_imports:
+        localpart:
+          action: require 
+          template: "{{ user.email | email_to_mxid_localpart }}"
+        displayname:
+          action: require
+          template: "{{ user.email | email_to_display_name }}"
+        email:
+          action: require
+          template: "{{ user.email }}"
+          set_email_verification: always
 
-# upstream_oauth2:
-#   providers:
-#     - id: "01JK5MR1SD21MAQY4PWMFG283W"
-#       issuer: "https://tchap-connect.tchapgouv.com/realms/tchap"
-#       token_endpoint_auth_method: client_secret_basic
-#       client_id: "matrix-authentication-service"
-#       client_secret: "HrJ1NZ0AbkHuWWjyRHh7X2lzn3S8eagt"
-#       scope: "openid profile email"
-#       claims_imports:
-#         localpart:
-#           action: force
-#           template: "{{ user.preferred_username }}"
-#         displayname:
-#           action: force
-#           template: "{{ user.name }}"
-#         email:
-#           action: force
-#           template: "{{ user.email }}"
-#           set_email_verification: always
-#       allow_existing_users: true
+telemetry:
+  tracing:
+  #   # List of propagators to use for extracting and injecting trace contexts
+  #   propagators:
+  #     # Propagate according to the W3C Trace Context specification
+  #     - tracecontext
+  #     # Propagate according to the W3C Baggage specification
+  #     - baggage
+  #     # Propagate trace context with Jaeger compatible headers
+  #     - jaeger
+
+  #   # The default: don't export traces
+    exporter: none
+
+    # Export traces to an OTLP-compatible endpoint
+    #exporter: otlp
+    #endpoint: https://localhost:4318
+  metrics:
+    # The default: don't export metrics
+    exporter: none
+
+    # Export metrics to an OTLP-compatible endpoint
+    #exporter: otlp
+    #endpoint: https://localhost:4317
+
+    # Export metrics by exposing a Prometheus endpoint
+    # This requires mounting the `prometheus` resource to an HTTP listener
+    #exporter: prometheus
+
+  # sentry:
+  #   # DSN to use for sending errors and crashes to Sentry
+  #   dsn: https://public@host:port/1
+
