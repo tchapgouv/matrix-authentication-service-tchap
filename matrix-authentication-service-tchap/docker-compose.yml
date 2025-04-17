@@ -3,6 +3,19 @@ services:
     image: sj26/mailcatcher
     network_mode: host
 
+  identity-mock:
+    image: wiremock/wiremock:2.35.0
+    ports:
+      - "8083:8080"
+    volumes:
+      - ./wiremock:/home/wiremock
+    command:
+      - --verbose
+      - --global-response-templating
+    networks:
+      - tchap-network
+    # This service mocks the Matrix Identity Server API
+    
   postgres:
     image: postgres
     ports:

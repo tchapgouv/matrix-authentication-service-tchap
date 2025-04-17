@@ -8,6 +8,7 @@ http:
         - name: compat
         - name: graphql
         - name: assets
+      # for api admin calls
         - name: adminapi
       binds:
         - address: '[::]:8080'
@@ -15,6 +16,7 @@ http:
     - name: internal
       resources:
         - name: health
+        # for api admin calls
         - name: adminapi
       binds:
         - host: localhost
@@ -183,7 +185,7 @@ upstream_oauth2:
       human_name: Proconnect (mock)
       issuer: "https://sso.tchapgouv.com/realms/proconnect-mock"
       token_endpoint_auth_method: client_secret_basic
-      client_id: "mas"
+      client_id: "matrix-authentication-service"
       client_secret: "HrJ1NZ0AbkHuWWjyRHh7X2lzn3S8eagt"
       scope: "openid profile email"
       claims_imports:
@@ -197,6 +199,7 @@ upstream_oauth2:
           action: require
           template: "{{ user.email }}"
           set_email_verification: always
+      allow_existing_users: true
 
 telemetry:
   tracing:
