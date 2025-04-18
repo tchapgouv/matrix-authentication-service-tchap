@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -e
-MAS_TCHAP_HOME=$PWD
+export MAS_TCHAP_HOME=$PWD
+
 cd $MAS_HOME
 
 # Build conf from conf.template.yaml
