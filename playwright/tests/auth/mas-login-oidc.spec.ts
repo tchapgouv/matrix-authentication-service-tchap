@@ -27,7 +27,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page.locator('text=Mon compte')).toBeVisible();
+      await expect(page.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-linked-account.png` });
@@ -66,7 +66,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page.locator('text=Mon compte')).toBeVisible();
+      await expect(page.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-linked-account.png` });
@@ -107,7 +107,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page.locator('text=Mon compte')).toBeVisible();
+      await expect(page.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-linked-account.png` });
@@ -152,7 +152,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page.locator('text=Mon compte')).toBeVisible();
+      await expect(page.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-linked-account.png` });
@@ -191,7 +191,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page.locator('text=Mon compte')).toBeVisible();
+      await expect(page.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-linked-account.png` });
@@ -238,7 +238,7 @@ test.describe('MAS Login OIDC', () => {
 
       // Since the account already exists, we should be automatically logged in
       // Verify we're successfully logged in
-      await expect(page2.locator('text=Mon compte')).toBeVisible();
+      await expect(page2.locator('text=Connecté')).toBeVisible();
       
       // Take a screenshot of the authenticated state
       await page2.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path_2}/05-connected-account.png` });

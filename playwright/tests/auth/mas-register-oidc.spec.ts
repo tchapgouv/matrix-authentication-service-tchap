@@ -27,7 +27,7 @@ test.describe('MAS register OIDC', () => {
 
     // Verify we're successfully logged in
     // This could be checking for a specific element that's only visible when logged in
-    await expect(page.locator('text=Mon compte')).toBeVisible();
+    await expect(page.locator('text=Connecté')).toBeVisible();
     
     // Take a screenshot of the authenticated state
     await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-authenticated.png` });
@@ -80,7 +80,7 @@ test.describe('MAS register OIDC', () => {
     await page.locator('button[type="submit"]').click();
   
     // Verify we're successfully logged in
-    await expect(page.locator('text=Mon compte')).toBeVisible();
+    await expect(page.locator('text=Connecté')).toBeVisible();
     
     // Take a screenshot of the authenticated state
     await page.screenshot({ path: `${SCREENSHOTS_DIR}/${screenshot_path}/04-authenticated-external.png` });
