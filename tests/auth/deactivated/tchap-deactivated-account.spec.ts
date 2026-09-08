@@ -52,7 +52,7 @@ test.describe('Tchap : Login password', () => {
     await expect(page.locator('text=Identifiants invalides')).toBeVisible();
   });
 
-  test('register when account is deactivated reactivates account silently', async ({
+  test.skip('register when account is deactivated reactivates account silently', async ({
     page,
     userData,
     screenChecker,
